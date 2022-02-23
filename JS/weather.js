@@ -30,7 +30,7 @@ async function getData() {
 	}
 }
 
-//For loop to determine number of times we access the API data. It is also used loop ove timeArr in order to make dynamic times and then insert the HTML into the DOM
+//For loop to determine number of times we access the API data. It is also used loop over timeArr in order to make dynamic times and then insert the HTML into the DOM
 function onWeatherData(weatherData) {
 	const timeArr = ["Now", "In 3 Hours", "In 6 Hours", "In 9 Hours"];
 	let holder = "";

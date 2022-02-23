@@ -8,26 +8,30 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	margin: 0;
 	padding: 0;
+
+	background-color: rgba(189, 234, 235, 0.421);
+	color: rgb(89, 88, 88);
 }
 
-h1 {
+.title {
 	text-align: center;
 }
 
 h3 {
 	font-size: 2.5em;
-	padding-left: 1em;
+	padding-left: 1.4em;
 }
 
 label,
 input,
 button {
 	font-size: 1.2em;
+	margin-bottom: 1em;
 }
 
 img {
 	position: absolute;
-	top: 3em;
+	top: 5.5em;
 	left: 0;
 	right: 0;
 	margin: auto;
@@ -37,13 +41,18 @@ img {
 
 ul {
 	position: absolute;
-	bottom: 0;
+	bottom: 2.5em;
+	left: 1em;
+
+	line-height: 2;
+	font-size: large;
+	font-weight: 600;
 }
 
 .weatherContainer {
 	display: grid;
 	grid-template-rows: repeat(3, 1fr);
-	row-gap: 1em;
+	row-gap: 2em;
 }
 
 .holder {
@@ -54,8 +63,10 @@ ul {
 		rgba(34, 193, 195, 1) 0%,
 		rgba(255, 190, 51, 1) 100%
 	);
+	border-radius: 1em;
 
 	height: 550px;
+	margin-top: 2em;
 }
 
 .holder h2 {
@@ -64,4 +75,30 @@ ul {
 
 .holder ul {
 	list-style: none;
+}
+
+@media screen and (min-width: 350px) {
+	img {
+		width: 70%;
+	}
+}
+
+@media screen and (min-width: 400px) {
+	.holder {
+		width: 400px;
+		margin: auto;
+	}
+}
+
+@media screen and (min-width: 850px) {
+	h1 {
+		font-size: 3em;
+	}
+	.weatherContainer {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.title {
+		margin-bottom: 3em;
+	}
 }
