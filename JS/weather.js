@@ -1,4 +1,5 @@
-import { weatherHTML, getAPI_URL } from "./config.js";
+import { getAPI_URL } from "./config.js";
+import { weatherHTML } from "./html_template.js";
 
 //Assign variables to HTML elements
 const place = document.getElementById("place");
