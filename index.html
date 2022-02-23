@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>3 Hour Weather Update</title>
+
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+		<script defer type="module" src="/JS/weather.js"></script>
+
+		<link rel="stylesheet" href="styles/weather.css" />
+	</head>
+	<body>
+		<div class="title">
+			<h1>3 Hour Weather Update</h1>
+			<label for="place">Enter location here</label>
+			<input id="place" type="text" />
+			<button id="button">Get Weather</button>
+		</div>
+
+		<div id="weatherContainer" class="weatherContainer"></div>
+	</body>
+</html>
