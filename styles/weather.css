@@ -13,10 +13,6 @@ body {
 	color: rgb(89, 88, 88);
 }
 
-.title {
-	text-align: center;
-}
-
 h3 {
 	font-size: 2.5em;
 	padding-left: 1.4em;
@@ -47,6 +43,10 @@ ul {
 	line-height: 2;
 	font-size: large;
 	font-weight: 600;
+}
+
+.title {
+	text-align: center;
 }
 
 .weatherContainer {
