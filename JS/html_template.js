@@ -1,7 +1,5 @@
 //Template for the main HTML to be inserted into the DOM
 export function weatherHTML(timeSlot) {
-	console.log(timeSlot);
-
 	const { temp, feels_like } = timeSlot.main;
 
 	return `
