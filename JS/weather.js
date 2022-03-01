@@ -19,14 +19,29 @@ place.addEventListener("keydown", (e) => {
 	}
 });
 
-//Retrieve data from API URL and save into a variable
+// A failsafe incase the user has browser location switched off
+const getLocation = () => {
+	navigator.geolocation.getCurrentPosition(success, error);
+};
+const error = (reason) => {
+	weatherContainer.innerHTML = reason.message;
+};
+const success = (position) => {};
+getLocation();
+
+//Retrieve data from API URL and save into a variable or alerts the user what and why there is a problem
 async function getData() {
 	try {
 		const result = await axios.get(getAPI_URL(place.value));
 		weatherData = result.data.list;
 		onWeatherData(weatherData);
 	} catch (error) {
-		console.error(error);
+		console.log(error);
+		if (error.response) {
+			weatherContainer.innerHTML = `Error code: ${error.response.status}. Error status: ${error.response.statusText}. Please enter a valid Location`;
+		} else {
+			weatherContainer.innerHTML = "API is down";
+		}
 	}
 }
 
