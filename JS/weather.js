@@ -4,6 +4,7 @@ import { weatherHTML } from "./html_template.js";
 //Assign variables to HTML elements
 const place = document.getElementById("place");
 const button = document.getElementById("button");
+const regex = document.getElementById("regex");
 const title = document.getElementById("title");
 const weatherContainer = document.getElementById("weatherContainer");
 let weatherData;
@@ -30,12 +31,17 @@ const error = (reason) => {
 const success = (position) => {};
 getLocation();
 
-//Retrieve data from API URL and save into a variable or informs the user what and why there is a problem
+//Retrieve data from API URL and save into a variable or informs the user what and why there is a problem. Also regex to make sure entry is at least 2 letters long
 async function getData() {
 	try {
-		const result = await axios.get(getAPI_URL(place.value));
-		weatherData = result.data.list;
-		onWeatherData(weatherData);
+		const inputRegex = /[A-Za-z ]{2}/gi;
+		if (inputRegex.test(place.value)) {
+			const result = await axios.get(getAPI_URL(place.value));
+			weatherData = result.data.list;
+			onWeatherData(weatherData);
+		} else {
+			regex.innerHTML = "<p>Entry must be at least 2 characters</p>";
+		}
 	} catch (error) {
 		console.log(error);
 		if (error.response) {
