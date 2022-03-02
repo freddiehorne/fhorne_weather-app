@@ -4,6 +4,7 @@ import { weatherHTML } from "./html_template.js";
 //Assign variables to HTML elements
 const place = document.getElementById("place");
 const button = document.getElementById("button");
+const title = document.getElementById("title");
 const weatherContainer = document.getElementById("weatherContainer");
 let weatherData;
 
@@ -24,12 +25,12 @@ const getLocation = () => {
 	navigator.geolocation.getCurrentPosition(success, error);
 };
 const error = (reason) => {
-	weatherContainer.innerHTML = reason.message;
+	title.innerHTML = `<h3>${reason.message}. Please enable Geolocation and reload the page.</h3>`;
 };
 const success = (position) => {};
 getLocation();
 
-//Retrieve data from API URL and save into a variable or alerts the user what and why there is a problem
+//Retrieve data from API URL and save into a variable or informs the user what and why there is a problem
 async function getData() {
 	try {
 		const result = await axios.get(getAPI_URL(place.value));
@@ -38,9 +39,10 @@ async function getData() {
 	} catch (error) {
 		console.log(error);
 		if (error.response) {
-			weatherContainer.innerHTML = `Error code: ${error.response.status}. Error status: ${error.response.statusText}. Please enter a valid Location`;
+			title.innerHTML = `<h3>Error code: ${error.response.status}. Error status: ${error.response.statusText}. Please reload the page and enter a valid Location</h3>`;
+			weatherContainer.innerHTML = "";
 		} else {
-			weatherContainer.innerHTML = "API is down";
+			title.innerHTML = "<h3>API is down</h3>";
 		}
 	}
 }

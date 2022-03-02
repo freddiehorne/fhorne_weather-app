@@ -2,4 +2,4 @@
 
 This project uses vanilla javascript to display an ability to retrieve data from an API, manipulate the data and insert it into the DOM
 
-[Netlify link](https://fhorne-weather-app.netlify.app)
+[View here](https://fhorne-weather-app.netlify.app)
