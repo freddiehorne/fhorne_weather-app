@@ -16,7 +16,7 @@ button.addEventListener("click", () => {
 
 //Run getData function with ENTER key
 place.addEventListener("keydown", (e) => {
-	if (e.keyCode === 13) {
+	if (e.key === "Enter") {
 		getData();
 	}
 });
@@ -32,7 +32,7 @@ const success = (position) => {};
 getLocation();
 
 //Retrieve data from API URL and save into a variable or informs the user what and why there is a problem. Also regex to make sure entry is at least 2 letters long
-async function getData() {
+const getData = async () => {
 	try {
 		const inputRegex = /[A-Za-z ]{2}/gi;
 		if (inputRegex.test(place.value)) {
@@ -51,13 +51,13 @@ async function getData() {
 			title.innerHTML = "<h3>API is down</h3>";
 		}
 	}
-}
+};
 
 //For loop to determine number of times we access the API data. It is also used loop over timeArr in order to make dynamic times and then insert the HTML into the DOM
-function onWeatherData(weatherData) {
+const onWeatherData = (weatherData) => {
 	const timeArr = ["Now", "In 3 Hours", "In 6 Hours", "In 9 Hours"];
 	let holder = "";
-	for (let i = 0; i < 4; i++) {
+	for (let i = 0; i < timeArr.length; i++) {
 		timeArr[i];
 		holder += `<div id="holder${i}" class="holder">
 						<h2>${timeArr[i]}</h2>
@@ -65,4 +65,4 @@ function onWeatherData(weatherData) {
 					</div>`;
 	}
 	weatherContainer.innerHTML = holder;
-}
+};

@@ -1,10 +1,10 @@
 //Template for the main HTML to be inserted into the DOM
-export function weatherHTML(timeSlot) {
+export const weatherHTML = (timeSlot) => {
 	const { temp, feels_like } = timeSlot.main;
 
 	return `
 				<h3>${Math.round(temp - 273.15)}°C</h3>
-	          <img src="/images/${timeSlot.weather[0].icon}.png" alt="${
+	          <img src="/assets/${timeSlot.weather[0].icon}.png" alt="${
 		timeSlot.weather[0].description
 	}">                                 
 	          <ul>
@@ -16,4 +16,4 @@ export function weatherHTML(timeSlot) {
 								)} mph</li>
 	          </ul>
           `;
-}
+};
